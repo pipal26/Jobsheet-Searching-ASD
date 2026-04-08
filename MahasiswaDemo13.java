@@ -5,7 +5,11 @@ public class MahasiswaDemo13 {
         Scanner sc = new Scanner(System.in);
         MahasiswaBerprestasi13 list = new MahasiswaBerprestasi13();
 
-        for (int i = 0; i < 5; i++) {
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int jumlah = sc.nextInt();
+        sc.nextLine();
+
+        for (int i = 0; i < jumlah; i++) {
             System.out.println("Masukkan data mahasiswa ke-" + (i + 1));
             System.out.print("NIM: ");
             String nim = sc.nextLine();
@@ -25,12 +29,12 @@ public class MahasiswaDemo13 {
         System.out.println("Data mahasiswa keseluruhan");
         list.tampil();
 
-        System.out.print("Masukkan IPK mahasiswa yang dicari: ");
+        System.out.print("Masukkan IPK yang dicari: ");
         double cari = sc.nextDouble();
 
-        int posisi = list.sequentialSearch(cari);
+        int pos = list.findBinarySearch(cari, 0, list.idx - 1);
 
-        list.tampilPosisi(cari, posisi);
-        list.tampilDataSearch(cari, posisi);
+        list.tampilPosisi(cari, pos);
+        list.tampilDataSearch(cari, pos);
     }
 }
